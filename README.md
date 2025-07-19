@@ -6,7 +6,7 @@ The cube rotates in 3D space using CSS animations, and users can start or stop t
 ---
 
 ## 🖥️ Live Demo
-[Click Here to View](#) 
+[Click Here to View](https://3-d-rotating-cube-animation.vercel.app/) 
 
 ---
 
@@ -34,7 +34,7 @@ Follow these steps:
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/your-username/3d-rotating-cube.git
+   git clone https://github.com/lifeonthecode/3D-Rotating-Cube-Animation.git
 
 
 Navigate into the folder
@@ -50,8 +50,9 @@ open index.html
 
 Or simply drag and drop it into your browser.
 
-📷 Preview
-(Screenshot of the cube animation here)
+## 📷 Preview
+
+![3D Rotating Cube](screenshot.png)
 
 ⚡ Controls
 ▶ Play – Starts the cube rotation.
@@ -63,14 +64,4 @@ This project is open-source and free to use.
 
 ✨ Author
 Created by Lifeonthecode.
-Feel free to fork and improve!
 
-
----
-
-Would you like me to:  
-1. **Make a `README.md` file ready to upload** (with proper markdown and no placeholders)?  
-2. **Add GitHub-friendly screenshot and badges** (so your repo looks professional)?  
-3. Or **both**?  
-
-Which one do you want? Or **all-in-one professional README**?
