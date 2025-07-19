@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>3D Rotating In Motion</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body,
+        html {
+            height: 100%;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .wrapper {
+            height: 100vh;
+            background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        .cube-wrapper {
+            position: relative;
+            width: 200px;
+            height: 200px;
+            perspective: 1200px;
+        }
+
+        .cube {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            transform-style: preserve-3d;
+            animation: rotateCube 3s linear infinite;
+            animation-play-state: paused;
+        }
+
+        .face {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 20px;
+            border: 2px solid rgba(0, 255, 255, 0.3);
+            box-shadow: 0 0 10px rgba(0, 255, 255, 0.2);
+        }
+
+        .primary {
+            background: rgba(0, 255, 255, 0.1);
+            border: 2px solid rgba(0, 255, 255, 0.3);
+        }
+
+        .diagonal {
+            background: rgba(255, 0, 150, 0.05);
+            border: 2px dashed rgba(255, 0, 150, 0.3);
+        }
+
+        .front {
+            transform: translateZ(100px);
+        }
+
+        .back {
+            transform: rotateY(180deg) translateZ(100px);
+        }
+
+        .left {
+            transform: rotateY(-90deg) translateZ(100px);
+        }
+
+        .right {
+            transform: rotateY(90deg) translateZ(100px);
+        }
+
+        .top {
+            transform: rotateX(90deg) translateZ(100px);
+        }
+
+        .bottom {
+            transform: rotateX(-90deg) translateZ(100px);
+        }
+
+        .side1 {
+            transform: rotateY(45deg) translateZ(100px);
+        }
+
+        .side2 {
+            transform: rotateY(-45deg) translateZ(100px);
+        }
+
+        .side3 {
+            transform: rotateY(135deg) translateZ(100px);
+        }
+
+        .side4 {
+            transform: rotateY(-135deg) translateZ(100px);
+        }
+
+        @keyframes rotateCube {
+            0% {
+                transform: rotateX(0deg) rotateY(0deg);
+            }
+
+            100% {
+                transform: rotateX(360deg) rotateY(360deg);
+            }
+        }
+
+        .control-wrapper {
+            margin-top: 110px;
+            display: flex;
+            gap: 2rem;
+        }
+
+        .control-wrapper button {
+            font-size: 1.5rem;
+            background: #1f1f1f;
+            color: white;
+            border: none;
+            padding: 0.8rem 2rem;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .control-wrapper button:hover {
+            background: #00ffff;
+            color: #000;
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="wrapper">
+        <div class="cube-wrapper">
+            <div class="cube">
+                <div class="face primary front"></div>
+                <div class="face primary back"></div>
+                <div class="face primary left"></div>
+                <div class="face primary right"></div>
+                <div class="face primary top"></div>
+                <div class="face primary bottom"></div>
+                <div class="face diagonal side1"></div>
+                <div class="face diagonal side2"></div>
+                <div class="face diagonal side3"></div>
+                <div class="face diagonal side4"></div>
+            </div>
+        </div>
+
+        <div class="control-wrapper">
+            <button id="play">▶ Play</button>
+            <button id="stop">⏹ Stop</button>
+        </div>
+    </div>
+
+    <script>
+        const cube = document.querySelector('.cube');
+        const playBtn = document.getElementById('play');
+        const stopBtn = document.getElementById('stop');
+
+        function startAnimation() {
+            cube.style.animationPlayState = 'running';
+        }
+
+        function stopAnimation() {
+            cube.style.animationPlayState = 'paused';
+        }
+
+        playBtn.addEventListener('click', () => {
+            startAnimation();
+            playBtn.style.backgroundColor = '#00c853';
+            stopBtn.style.backgroundColor = '#1f1f1f';
+        });
+
+        stopBtn.addEventListener('click', () => {
+            stopAnimation();
+            stopBtn.style.backgroundColor = '#d50000';
+            playBtn.style.backgroundColor = '#1f1f1f';
+        });
+    </script>
+
+</body>
+
+</html>
